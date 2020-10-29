@@ -1,6 +1,7 @@
-### Order delivery system
+## In-memory pub-sub system
+This is an implementation of an in-memory pub-sub system (for ex Kafka). There is a publisher interface and a subscriber interface. The pub-sub system is thread safe and operates on a "pull" model from the customer's perspective.
 
-#### Building and running the code
+### Building and running the code
 The programming language used is Java8 (as a gradle project).
 
 Unzip the contents and from the project's root directory (called `rootDir`), run `./gradlew clean build fatJar --refresh-dependencies` : This will build the jar and place it under
@@ -11,14 +12,11 @@ For running the code, from the `rootDir` run `java -jar build/libs/<filename>.ja
 The input `orders.json` file is under `src/main/resources` directory. If this file changes, please build the jar once again before running as the CSVs are loaded from
 the classpath.
 
-#### Testing the code
+### Testing the code
 There are tests for all major flows using groovy and spock testing framework.
 
 Run `./gradlew test` from the `rootDir`.
 
 #### Notes
-
-The design is based on a custom pub-sub in-memory implementation. OrderDispatcher is a producer, and the consumers are 
-ShelfManager and the Order delivery system. 
 
 Design patterns used: Singleton, callback, pubsub.
